@@ -1,4 +1,7 @@
 Revision history for Perl extension Proc::PID::File::Fcntl
 
+0.02   Mon Oct 10 10:01:21 PDT 2005
+	- Fix installation path
+
 0.01  Wed Oct  5 18:04:07 PDT 2005
 	- original version

@@ -63,7 +63,7 @@ use strict;
 use warnings;
 use POSIX qw(F_SETLK F_GETLK O_RDWR O_CREAT);
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 FLOCK_DEFS
 

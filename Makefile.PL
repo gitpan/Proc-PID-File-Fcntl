@@ -9,5 +9,5 @@ WriteMakefile (
 	       ABSTRACT_FROM	=> 'Fcntl.pm.PL',
 	       PREREQ_PM	=> {'ExtUtils::CBuilder' => 0.07}, # Because MakeMaker has no obvious way to compile lockdefs.c
 	       C		=> [],  # Prevent MakeMaker from trying to build a Fcntl.xs
-	       PM		=> { 'Fcntl.pm' => '$(INST_ARCHLIB)/Proc/Pid/File/Fcntl.pm' }, # Because MakeMaker can't figure this out by itself
+	       PM		=> { 'Fcntl.pm' => '$(INST_ARCHLIB)/Proc/PID/File/Fcntl.pm' }, # Because MakeMaker can't figure this out by itself
 );
