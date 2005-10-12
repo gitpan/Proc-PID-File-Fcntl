@@ -63,7 +63,7 @@ use strict;
 use warnings;
 use POSIX qw(F_SETLK F_GETLK O_RDWR O_CREAT);
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 FLOCK_DEFS
 
@@ -108,7 +108,7 @@ sub new ($) {
 
 	my $flock = $_flock_init;
 	fcntl($fd, F_SETLK, $flock) || die "pidfile ".$self->{path}." already locked\n";
-    } while ( (stat($self->{path}))[1] != (stat $fd)[1] );
+    } while ((! -f $self->{path}) || (stat _)[1] != (stat $fd)[1] );
 
     my $data = "$$\n";
     syswrite $fd, $data, length($data);
