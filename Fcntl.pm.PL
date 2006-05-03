@@ -15,21 +15,6 @@ exit 0;
 __DATA__
 #   -*- Perl -*-
 #   Proc::PID::File::Fcntl - pidfile manager
-#   Copyright (C) 2005 Proofpoint, Inc.
-#
-#   This program is free software; you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation; either version 2 of the License, or
-#   (at your option) any later version.
-#
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
 package Proc::PID::File::Fcntl;
@@ -63,7 +48,7 @@ use strict;
 use warnings;
 use POSIX qw(F_SETLK F_GETLK O_RDWR O_CREAT);
 
-our $VERSION = "0.03";
+our $VERSION = "1.00";
 
 FLOCK_DEFS
 
@@ -174,6 +159,13 @@ John Gardiner Myers <jgmyers@proofpoint.com>
 For help and thank you notes, e-mail the author directly.  To report a
 bug, submit a patch, or add to the wishlist please visit the CPAN bug
 manager at: F<http://rt.cpan.org>
+
+=head1 COPYRIGHT
+
+Copyright (C) 2005, 2006 Proofpoint, Inc.
+
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself
 
 =cut
 

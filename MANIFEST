@@ -4,4 +4,3 @@ MANIFEST
 Fcntl.pm.PL
 lockdefs.c
 test.pl
-LICENSE
