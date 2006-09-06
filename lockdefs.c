@@ -45,12 +45,12 @@ main ()
 	printf("\\%o", ((unsigned char *)&fl)[offset]);
     }
     printf("\";\nour $_flock_pid_template = \"x%d", offsetof(struct flock, l_pid));
-    if (sizeof(fl.l_pid) == sizeof(unsigned)) {
-	printf("U");
-    } else if (sizeof(fl.l_pid) == sizeof(unsigned long)) {
+    if (sizeof(fl.l_pid) == 4) {
 	printf("L");
-    } else if (sizeof(fl.l_pid) == sizeof(unsigned short)) {
+    } else if (sizeof(fl.l_pid) == 2) {
 	printf("S");
+    } else if (sizeof(fl.l_pid) == 8) {
+	printf("Q");
     } else {
 	fprinf(stderr, "Unknown pid size\n");
 	exit(1);

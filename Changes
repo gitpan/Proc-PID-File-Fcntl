@@ -1,5 +1,10 @@
 Revision history for Perl extension Proc::PID::File::Fcntl
 
+1.01   Wed Sep  6 15:53:48 PDT 2006
+	- Fix documentation errors
+	- getlocker had the wrong interface and returned garbage
+	- Add (incomplete) test script
+
 1.00   Wed May  3 14:25:17 PDT 2006
         - Bump version to 1.0
 	- Relicense under same terms as Perl

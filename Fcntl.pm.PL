@@ -48,11 +48,11 @@ use strict;
 use warnings;
 use POSIX qw(F_SETLK F_GETLK O_RDWR O_CREAT);
 
-our $VERSION = "1.00";
+our $VERSION = "1.01";
 
 FLOCK_DEFS
 
-=head2 $pidfile = Proc::PID::File::Fcntl->new( { opt => val, ... } )
+=head2 $pidfile = Proc::PID::File::Fcntl->new(opt => val, ... )
 
 Creates and locks a new I<pidfile>, returning an object holding the
 lock.  When the returned object goes out of scope, the lock is
@@ -103,7 +103,7 @@ sub new ($) {
     return $self;
 }
 
-=head2 $pid = Proc::PID::File::Fcntl::getlocker( { opt => val, ... } )
+=head2 $pid = Proc::PID::File::Fcntl->getlocker(opt => val, ... )
 
 Returns the PID of the process holding the lock on a I<pidfile> or
 C<0> if there is no such process.
@@ -126,14 +126,16 @@ value does not end with F<.pid> then F<.pid> is appended.
 =cut
 
 sub getlocker {
-    my ($class, $path) = @_;
+    my $class = shift;
     die "Must be called as class method" if ref($class);
 
-    $path = $0 unless defined($path);
-    $path = "/var/run/".$path unless $path =~ m|^/|;
-    $path .= '.pid' unless $path =~ /\.pid$/;
+    my %opts = @_;
+
+    $opts{path} = $0 unless defined($opts{path});
+    $opts{path} = "/var/run/".$opts{path} unless $opts{path} =~ m|^/|;
+    $opts{path} .= '.pid' unless $opts{path} =~ /\.pid$/;
     
-    sysopen(my $fd, $path, O_RDWR) || return 0;
+    sysopen(my $fd, $opts{path}, O_RDWR) || return 0;
 
     my $flock = $_flock_init;
     fcntl($fd, F_GETLK, $flock);
